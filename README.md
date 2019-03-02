@@ -92,3 +92,19 @@ like that.
 After run the project you can hit the url : 
 'http://localhost:8080/login?username=Vikash&password=Singh'
 
+
+
+> RequestDispatcher interface
+
+Defines an object that receives requests from the client and sends them to any resource (such as a servlet, HTML file,
+or JSP file) on the server. The servlet container creates the RequestDispatcher object, which is used as a wrapper 
+around a server resource located at a particular path or given by a particular name.
+
+Method : 
+public void forward(ServletRequest request, ServletResponse response)
+public void include(ServletRequest request, ServletResponse response)
+
+you can set attributes and get it on dispatcher page.
+request.setAttribute("error","Username or Password is incorrect");      // set attribute on servlet page
+String error= (String) request.getAttribute("error");                   // get attribute on jsp page
+
