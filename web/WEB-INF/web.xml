@@ -8,4 +8,15 @@
         <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>
 
+    <!-- The deployment descriptor is an xml file, from which Web Container gets the information about the servet to be invoked. -->
+    <servlet>
+        <servlet-name>DemoServlet</servlet-name>
+        <servlet-class>com.way_to_create_servlet.DemoServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>DemoServlet</servlet-name>
+        <url-pattern>/demoServlet</url-pattern>
+    </servlet-mapping>
+
 </web-app>
