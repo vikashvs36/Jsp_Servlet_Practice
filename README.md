@@ -71,3 +71,24 @@ The deployment descriptor is an xml file, from which Web Container gets the info
             <url-pattern>/demoServlet</url-pattern>
         </servlet-mapping>
 
+
+
+> ServletRequest Interface 
+
+Defines an object to provide client request information to a servlet such as content type, content length, parameter
+names and values, header informations, attributes etc. The servlet container creates a ServletRequest object and passes
+it as an argument to the servlet's service method.
+
+It has many methods. Some methods are given below :
+
+i).     public String getParameter(String name)
+ii).    public String[] getParameterValues(String name)
+iii).   public int getContentLength()
+iv).    public String getContentType()
+v).     public int getServerPort()
+vi).    public abstract String getServerName()
+like that.
+
+After run the project you can hit the url : 
+'http://localhost:8080/login?username=Vikash&password=Singh'
+
