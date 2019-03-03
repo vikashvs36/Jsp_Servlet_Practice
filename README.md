@@ -22,7 +22,7 @@ There are three ways to create the servlet.
     3. By inheriting the HttpServlet class
 
 
-1. By implementing the Servlet interface
+1. **By implementing the Servlet interface**
 
 Servlet interface needs to be implemented for create servlet. It provides 5 methods. 3 life cycle methods that are used
 to initialize the servlet, to service the requests, and to destroy the servlet and 2 non-life cycle methods.
@@ -40,7 +40,7 @@ Non-life cycle methods
 * public String getServletInfo()
 
 
-2. By inheriting the GenericServlet 
+2. **By inheriting the GenericServlet**
 
 GenericServlet is an abstract class so you need have to extends GenericServlet class and it can handle any type of 
 request so it is protocol-independent. It has only one abstract method.
@@ -50,7 +50,7 @@ Method :
 i) public void service(ServletRequest servletRequest, ServletResponse servletResponse)
 
 
-3. By inheriting the HttpServlet class
+3. **By inheriting the HttpServlet class**
 
 HttpServlet is an abstract class that implements the Servlet interface and is specially designed to handle HTTP 
 requests. There is no any abstract method in this class.
@@ -134,7 +134,7 @@ An attribute in servlet is an object that can be set, get or removed from one of
 2.  session scope
 3.  application scope
 
-* request scope :
+* **request scope** :
 means for that particular action only you are keeping the values. In this if you call another action or redirects 
 to another JSP , it gets removed. Its generally use when we need to of a submitted form. 
 
@@ -143,7 +143,7 @@ Ex:- set request scoped attribute
     req.setAttribute("name", "request scoped attribute");
 
 
-* session scope : 
+* **session scope** : 
 It means through the application (till the session gets expired). Your can keep the values in session 
 no matter how many JPSs you are visiting of that application. It remains there in session until you close your browser.
 A session is created by the web container. So the session’s lifespan lives as long as the user interacts with 
@@ -154,7 +154,7 @@ Ex:- set session scoped attribute
         HttpSession session = req.getSession();
         session.setAttribute("name", "session scoped attribute");
 
-* application scope :
+* **application scope** :
 Application Scope or global scope is associated with your web application. This scope lives as long as the web 
 application is deployed. 
 
