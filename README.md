@@ -3,7 +3,7 @@ Simple project to get knowlage of JSP and Servlet.
 
 
 
-> Welcome-file-list in web.xml
+> ## Welcome-file-list in web.xml
 
 If you want to show first web page as welcome file then you can write code in web.xml which is given below. 
   
@@ -13,7 +13,7 @@ If you want to show first web page as welcome file then you can write code in we
     
 
     
-> Way to Create a Servlet
+> ## Way to Create a Servlet
 
 There are three ways to create the servlet.
 
@@ -31,13 +31,13 @@ There is five abstract method in this interface.
 Methods :
  
 Life cycle methods
-i).     public void init(ServletConfig config)
-ii).    public void service(ServletRequest request,ServletResponse response)
-iii).   public void destroy()
+* public void init(ServletConfig config)
+* public void service(ServletRequest request,ServletResponse response)
+* public void destroy()
 
 Non-life cycle methods
-iv).    public ServletConfig getServletConfig()
-v).     public String getServletInfo()
+* public ServletConfig getServletConfig()
+* public String getServletInfo()
 
 
 2. By inheriting the GenericServlet 
@@ -57,7 +57,7 @@ requests. There is no any abstract method in this class.
 
 
 
-> Create the Servlet using deployment descriptor (web.xml file)
+> ## Create the Servlet using deployment descriptor (web.xml file)
 
 The deployment descriptor is an xml file, from which Web Container gets the information about the servet to be invoked.
 
@@ -73,7 +73,7 @@ The deployment descriptor is an xml file, from which Web Container gets the info
 
 
 
-> ServletRequest Interface 
+> ## ServletRequest Interface 
 
 Defines an object to provide client request information to a servlet such as content type, content length, parameter
 names and values, header informations, attributes etc. The servlet container creates a ServletRequest object and passes
@@ -81,28 +81,28 @@ it as an argument to the servlet's service method.
 
 It has many methods. Some methods are given below :
 
-i).     public String getParameter(String name)
-ii).    public String[] getParameterValues(String name)
-iii).   public int getContentLength()
-iv).    public String getContentType()
-v).     public int getServerPort()
-vi).    public abstract String getServerName()
-like that.
+* public String getParameter(String name)
+* public String[] getParameterValues(String name)
+* public int getContentLength()
+* public String getContentType()
+* public int getServerPort()
+* public abstract String getServerName()
+like that...
 
 After run the project you can hit the url : 
 'http://localhost:8080/login?username=Vikash&password=Singh'
 
 
 
-> RequestDispatcher interface
+> ## RequestDispatcher interface
 
 Defines an object that receives requests from the client and sends them to any resource (such as a servlet, HTML file,
 or JSP file) on the server. The servlet container creates the RequestDispatcher object, which is used as a wrapper 
 around a server resource located at a particular path or given by a particular name.
 
 Method : 
-public void forward(ServletRequest request, ServletResponse response)
-public void include(ServletRequest request, ServletResponse response)
+* public void forward(ServletRequest request, ServletResponse response)
+* public void include(ServletRequest request, ServletResponse response)
 
 If you want to go from servlet to another servlet then you can use :-
 
@@ -110,12 +110,14 @@ If you want to go from servlet to another servlet then you can use :-
 Note : It will send on post method by default, where you want to go
 
 you can set attributes and get it on dispatcher page.
-request.setAttribute("error","Username or Password is incorrect");      // set attribute on servlet page
+
+    // set attribute on servlet page
+    request.setAttribute("error","Username or Password is incorrect");     
 String error= (String) request.getAttribute("error");                   // get attribute on jsp page
 
 
 
-> SendRedirect in servlet
+> ## SendRedirect in servlet
 
 If you want to go from servlet to another URL like "https://www.google.com/?gws_rd=ssl"
 
@@ -124,7 +126,7 @@ Note : It will send on Get method by default, where you want to go
 
 
 
-> Attribute in Servlet
+> ## Attribute in Servlet
 
 An attribute in servlet is an object that can be set, get or removed from one of the following scopes:
 
@@ -132,7 +134,7 @@ An attribute in servlet is an object that can be set, get or removed from one of
 2.  session scope
 3.  application scope
 
-i). request scope :
+* request scope :
 means for that particular action only you are keeping the values. In this if you call another action or redirects 
 to another JSP , it gets removed. Its generally use when we need to of a submitted form. 
 
@@ -141,7 +143,7 @@ Ex:- set request scoped attribute
     req.setAttribute("name", "request scoped attribute");
 
 
-ii). session scope : 
+* session scope : 
 It means through the application (till the session gets expired). Your can keep the values in session 
 no matter how many JPSs you are visiting of that application. It remains there in session until you close your browser.
 A session is created by the web container. So the session’s lifespan lives as long as the user interacts with 
@@ -152,7 +154,7 @@ Ex:- set session scoped attribute
         HttpSession session = req.getSession();
         session.setAttribute("name", "session scoped attribute");
 
-iii). application scope :
+* application scope :
 Application Scope or global scope is associated with your web application. This scope lives as long as the web 
 application is deployed. 
 
