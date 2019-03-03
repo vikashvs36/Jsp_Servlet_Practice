@@ -19,7 +19,7 @@ public class LoginServlet extends HttpServlet{
         loginService=new LoginService();
     }
 
-    public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         // Fetch client request information using getParameter() method of ServletRequest interface.
         String username = (String) req.getParameter("username");

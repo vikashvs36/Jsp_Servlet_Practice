@@ -104,7 +104,69 @@ Method :
 public void forward(ServletRequest request, ServletResponse response)
 public void include(ServletRequest request, ServletResponse response)
 
+If you want to go from servlet to another servlet then you can use :-
+
+    req.getRequestDispatcher("servlet_url-pattern").forward(req, resp);       
+Note : It will send on post method by default, where you want to go
+
 you can set attributes and get it on dispatcher page.
 request.setAttribute("error","Username or Password is incorrect");      // set attribute on servlet page
 String error= (String) request.getAttribute("error");                   // get attribute on jsp page
+
+
+
+> SendRedirect in servlet
+
+If you want to go from servlet to another URL like "https://www.google.com/?gws_rd=ssl"
+
+    resp.sendRedirect("https://www.google.com/?gws_rd=ssl");            
+Note : It will send on Get method by default, where you want to go
+
+
+
+> Attribute in Servlet
+
+An attribute in servlet is an object that can be set, get or removed from one of the following scopes:
+
+1.  request scope
+2.  session scope
+3.  application scope
+
+i). request scope :
+means for that particular action only you are keeping the values. In this if you call another action or redirects 
+to another JSP , it gets removed. Its generally use when we need to of a submitted form. 
+
+Ex:- set request scoped attribute
+
+    req.setAttribute("name", "request scoped attribute");
+
+
+ii). session scope : 
+It means through the application (till the session gets expired). Your can keep the values in session 
+no matter how many JPSs you are visiting of that application. It remains there in session until you close your browser.
+A session is created by the web container. So the session’s lifespan lives as long as the user interacts with 
+your application or when session.invalidate() is called. 
+
+Ex:- set session scoped attribute
+
+        HttpSession session = req.getSession();
+        session.setAttribute("name", "session scoped attribute");
+
+iii). application scope :
+Application Scope or global scope is associated with your web application. This scope lives as long as the web 
+application is deployed. 
+
+Ex:- set application scoped attribute
+
+        req.getServletContext().setAttribute("name", "application scoped attribute");
+
+Attribute specific methods of ServletRequest, HttpSession and ServletContext interface
+There are following 4 attribute specific methods. They are as follows:
+1. public void setAttribute(String name,Object object):sets the given object in the application scope.
+2. public Object getAttribute(String name):Returns the attribute for the specified name.
+3. public Enumeration getInitParameterNames():Returns the names of the context's initialization parameters as 
+an Enumeration of String objects.
+4. public void removeAttribute(String name):Removes the attribute with the given name from the servlet context.
+
+
 
