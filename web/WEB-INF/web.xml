@@ -19,4 +19,25 @@
         <url-pattern>/demoServlet</url-pattern>
     </servlet-mapping>
 
+
+    <!-- ServletConfig Interface-->
+    <servlet>
+        <servlet-name>ServletConfigExample</servlet-name>
+        <servlet-class>com.servlet.ServletConfigExample</servlet-class>
+
+        <!-- Example of  servletConfig to set variable on servlet label-->
+        <init-param>
+            <param-name>username</param-name>
+            <param-value>Vikash</param-value>
+        </init-param>
+        <init-param>
+            <param-name>totorial</param-name>
+            <param-value>Jsp-Servlet</param-value>
+        </init-param>
+
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ServletConfigExample</servlet-name>
+        <url-pattern>/servlet_config</url-pattern>
+    </servlet-mapping>
 </web-app>

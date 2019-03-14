@@ -171,4 +171,34 @@ an Enumeration of String objects.
 4. public void removeAttribute(String name):Removes the attribute with the given name from the servlet context.
 
 
+> # **ServletConfig Interface**
+ServletConfig is the interface to provide separately information for each servlet. The main advantage of this 
+interface is we don't need to edit servlet file. it can be modify from web.xml file.
 
+ **Method Summary of ServletConfig**
+* public String getServletName()
+
+    Returns the name of this servlet instance.
+* public ServletContext getServletContext()
+
+    Returns a reference to the ServletContext in which the caller is executing.
+* public String getInitParameter(java.lang.String name)
+
+Returns a String containing the value of the named initialization parameter, or null if the parameter does not exist. 
+* public Enumeration getInitParameterNames()
+
+Returns the names of the servlet's initialization parameters as an Enumeration of String objects, or an empty Enumeration 
+if the servlet has no initialization parameters.
+
+**Way to use ServletConfig**
+
+    // get the object of ServletConfig
+    ServletConfig sc=getServletConfig();
+    
+    // How to get Servlet name
+    String servletName=configObj.getServletName();
+    out.println("ServletName : "+servletName);
+    
+    // Not call the servletConfig's methods
+    String username=configObj.getInitParameter("username");
+ 
