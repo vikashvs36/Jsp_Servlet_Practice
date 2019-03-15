@@ -184,11 +184,11 @@ interface is we don't need to edit servlet file. it can be modify from web.xml f
     Returns a reference to the ServletContext in which the caller is executing.
 * public String getInitParameter(java.lang.String name)
 
-Returns a String containing the value of the named initialization parameter, or null if the parameter does not exist. 
+    Returns a String containing the value of the named initialization parameter, or null if the parameter does not exist. 
 * public Enumeration getInitParameterNames()
 
-Returns the names of the servlet's initialization parameters as an Enumeration of String objects, or an empty Enumeration 
-if the servlet has no initialization parameters.
+    Returns the names of the servlet's initialization parameters as an Enumeration of String objects, or an empty Enumeration 
+    if the servlet has no initialization parameters.
 
 **Way to use ServletConfig**
 
@@ -201,4 +201,48 @@ if the servlet has no initialization parameters.
     
     // Not call the servletConfig's methods
     String username=configObj.getInitParameter("username");
+    
+> # **Interface HttpSession**
+Provides a way to identify a user across more than one page request or visit to a Web site and to store information about that user.
+
+**Methods of HttpSession**
+
+* public String getId()	
+
+    Returns the unique session id
+* public HttpSession getSession()
+
+    Gets the HttpSession object. If the request doesn’t have a session then a new session is created
+* public HttpSession getSession(boolean create)
+
+    Gets the HttpSession object. If the request doesn’t have a session then it will never create a new session if passed parameter is false.
+* public void setAttribute(String name, Object value)
+
+    Binds an object to this session, using the name specified.
+* public Object getAttribute(String name)
+
+     Returns the object bound with the specified name in this session, or null if no object is bound under the name.
+* public Enumeration getAttributeNames()
+
+    Returns an Enumeration of String objects containing the names of all the objects bound to this session.
+* public void removeAttribute(String name)
+
+    Removes the object bound with the specified name from this session.
+* setMaxInactiveInterval(int interval)
+
+    Specifies the time, in seconds, between client requests before the servlet container will invalidate this session.
+* public void invalidate()
+	
+	Invalidates the session
+
+**Way to use HttpSession**
+
+    // how to create a HttpSession object.
+    HttpSession session = req.getSession();
+     
+    // How to store the user information
+    session.setAttribute("username", "VikashSingh");
+    
+    // To get the value from session
+    String userName = (String) session.getAttribute("uName");
  
