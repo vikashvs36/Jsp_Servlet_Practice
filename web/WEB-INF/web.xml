@@ -40,4 +40,20 @@
         <servlet-name>ServletConfigExample</servlet-name>
         <url-pattern>/servlet_config</url-pattern>
     </servlet-mapping>
+
+
+    <!-- How to use Servlet Filter -->
+    <filter>
+        <filter-name>loggingFilterServlet</filter-name>
+        <filter-class>com.Filter.LogFilter</filter-class>
+        <init-param>
+            <param-name>test_param</param-name>
+            <param-value>Initialization Paramter</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>loggingFilterServlet</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
 </web-app>

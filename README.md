@@ -244,5 +244,36 @@ Provides a way to identify a user across more than one page request or visit to 
     session.setAttribute("username", "VikashSingh");
     
     // To get the value from session
-    String userName = (String) session.getAttribute("uName");
+    String userName = (String) session.getAttribute("username");
+    
+> # **Servlet Filter**
+Filter is invoked at the preprocessing and postprocessing of a request. it is generally used to perform filtering tasks 
+such as logging, validation, encryption and decryption etc.
+
+**Methods of HttpSession**
+* public void init(FilterConfig config)
+
+    This method is called by the web container to indicate to a filter that it is being placed into service.
+* public void doFilter(HttpServletRequest request,HttpServletResponse response, FilterChain chain)
+
+     The doFilter method of the Filter is called by the container each time a request/response pair is passed through 
+     the chain due to a client request for a resource at the end of the chain.
+* public void destroy()
+
+    destroy() method is invoked only once when filter is being taken out of service.
+    
+**Way to map a Filter to servlet classes or url-patterns in web.xml like below**
+
+    <filter>
+        <filter-name>loggingFilterServlet</filter-name>
+        <filter-class>com.Filter.LogFilter</filter-class>
+        <init-param>
+            <param-name>test_param</param-name>
+            <param-value>Initialization Paramter</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>loggingFilterServlet</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
  
